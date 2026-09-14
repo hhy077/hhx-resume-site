@@ -37,10 +37,10 @@ const PROJECTS: Project[] = [
     icon: Sparkles,
     iconLabel: "LOOM",
     title:
-      "An AI writing companion that thinks alongside you, allowing you to capture ideas, edits, and drafts in one focused space.",
+      "面向 3–8 岁儿童的响应式综合学习平台，覆盖识字、算术、绘画与科普互动模块。项目视频即将上线。",
     description:
-      "I designed Loom, a focused writing surface where ideas, edits, and drafts coexist without the chat clutter.",
-    meta: "Design Engineer, 2024",
+      "产品负责人 & 全栈开发者 · 内部测试",
+    meta: "阳光花园 · 内部测试 · 2026",
     imageRatio: 752 / 497,
     image:
       "https://cdn.dribbble.com/userupload/46128964/file/b92b9d268dd928642ca94bd49e32923a.jpg?resize=752x497&vertical=center",
@@ -50,10 +50,10 @@ const PROJECTS: Project[] = [
     id: "atlas",
     icon: Compass,
     iconLabel: "Atlas Studio",
-    title: "A two week brand and product sprint for a creative studio.",
+    title: "通过多智能体协作、工具调用和知识检索，用自然语言统一调度任务、日历与文件。项目视频即将上线。",
     description:
-      "End to end identity, marketing site, and a small product surface designed to feel quietly confident across every touchpoint.",
-    meta: "Product & Brand Designer, 2025",
+      "AI 效率工具开发者 · 内部测试",
+    meta: "个人专属工作台 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
       "https://cdn.dribbble.com/userupload/24599416/file/original-1ae5075dcd129aebb16bdbca24b41ac7.png?resize=1024x768&vertical=center",
@@ -63,10 +63,10 @@ const PROJECTS: Project[] = [
     id: "rhythm",
     icon: LineChart,
     iconLabel: "Rhythm",
-    title: "Calm analytics for indie founders.",
+    title: "支持 PDF 与网页导入、自动摘要、术语解释、语义检索和原文定位。项目视频即将上线。",
     description:
-      "A weekly digest that turns raw product data into a simple narrative. Built so you can read it on a Sunday with coffee.",
-    meta: "Founder & Designer, 2024",
+      "AI 科研工具开发者 · 内部测试",
+    meta: "文献智能辅助阅读工具 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
       "https://cdn.dribbble.com/userupload/47357856/file/75841fa59f32f05ca6c5ddf02d08dfe6.png?resize=1024x768&vertical=center",
@@ -94,7 +94,7 @@ const PROJECTS: Project[] = [
       "A pocket sized research tool for design teams that want to get out of their docs and into the world.",
     description:
       "Capture quotes, tag patterns, and synthesize themes in one place. The interface stays out of the way so the thinking can happen.",
-    meta: "Design Engineer, 2024",
+    meta: "阳光花园 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
       "https://cdn.dribbble.com/userupload/30310902/file/original-621e7fe47be9d11ee14544456c693bec.png?resize=1024x768&vertical=center",
@@ -221,4 +221,5 @@ function ProjectCard({
     </FadeIn>
   );
 }
+
 
