@@ -4,8 +4,9 @@ import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { PortraitMorph } from "./portrait-morph";
 
-const PORTRAIT_SRC = "/hhx-portrait.png";
-const PORTRAIT_HOVER_SRC = "/hhx-portrait.png";
+const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" : "";
+const PORTRAIT_SRC = `${ASSET_PREFIX}/hhx-portrait.png`;
+const PORTRAIT_HOVER_SRC = `${ASSET_PREFIX}/hhx-portrait.png`;
 
 export function Hero(): ReactNode {
   return (

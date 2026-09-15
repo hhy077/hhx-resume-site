@@ -3,13 +3,13 @@ import type { Metadata } from "next";
 export const siteConfig = {
   name: "霍华翔 · AI 应用开发者",
   description: "食品科学与人工智能交叉方向的 AI 应用开发者与全栈工程实践者。",
-  url: "https://example.com",
+  url: "https://hhy077.github.io/hhx-resume-site",
   ogImage: "/og-image.png",
   creator: "霍华翔",
   authors: [
     {
       name: "霍华翔",
-      url: "https://example.com",
+      url: "https://hhy077.github.io/hhx-resume-site",
     },
   ],
   keywords: [
