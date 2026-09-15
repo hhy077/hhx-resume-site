@@ -1,15 +1,4 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/metadata";
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-  ];
-}
+export const dynamic = "force-static";
+export default function sitemap(): MetadataRoute.Sitemap { return [{ url: siteConfig.url, lastModified: "2026-09-15", changeFrequency: "weekly", priority: 1 }]; }
