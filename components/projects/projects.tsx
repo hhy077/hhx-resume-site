@@ -1,9 +1,9 @@
 import { ArrowRight, BookOpen, Bot, Sparkles } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
+import { LightboxImage } from "@/components/ui/lightbox-image";
 
 const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" : "";
 
@@ -133,13 +133,11 @@ function ProjectCard({
           style={{ aspectRatio: project.imageRatio }}
         >
           <div className="project-card__image-inner">
-            <Image
+            <LightboxImage
               src={project.image}
               alt={project.imageAlt}
-              fill
               sizes="(min-width: 1024px) 540px, (min-width: 768px) 45vw, 100vw"
               className="object-cover"
-              priority={index < 2}
             />
           </div>
         </div>

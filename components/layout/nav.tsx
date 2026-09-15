@@ -20,9 +20,10 @@ type NavItem = {
 };
 
 const NAV_ITEMS: readonly NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "Projects", href: "/projects" },
-  { label: "About", href: "/about" },
+  { label: "首页 · Home", href: "/" },
+  { label: "项目 · Projects", href: "/projects" },
+  { label: "关于 · About", href: "/about" },
+  { label: "游戏 · Games", href: "/#games" },
 ];
 
 function useIsMounted(): boolean {
@@ -122,7 +123,9 @@ export function Nav(): ReactNode {
   const [hasMeasured, setHasMeasured] = useState(false);
 
   const activeIndex = NAV_ITEMS.findIndex((item) =>
-    item.href === "/"
+    item.href === "/#games"
+      ? pathname === "/"
+      : item.href === "/"
       ? pathname === "/"
       : pathname === item.href || pathname.startsWith(`${item.href}/`)
   );

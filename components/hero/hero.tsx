@@ -2,11 +2,10 @@ import type { ReactNode } from "react";
 
 import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
-import { PortraitMorph } from "./portrait-morph";
+import { LightboxImage } from "@/components/ui/lightbox-image";
 
 const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" : "";
 const PORTRAIT_SRC = `${ASSET_PREFIX}/hhx-portrait.png`;
-const PORTRAIT_HOVER_SRC = `${ASSET_PREFIX}/hhx-portrait.png`;
 
 export function Hero(): ReactNode {
   return (
@@ -39,11 +38,7 @@ export function Hero(): ReactNode {
           <ScaleUnblur className="flex justify-stretch md:justify-end">
             <div className="relative aspect-square w-full md:max-w-105 overflow-hidden rounded-4xl border border-foreground/8 bg-background p-1.5 shadow-sm">
               <div className="relative h-full w-full overflow-hidden rounded-[1.6rem]">
-                <PortraitMorph
-                  srcA={PORTRAIT_SRC}
-                  srcB={PORTRAIT_HOVER_SRC}
-                  alt="霍华翔 portrait"
-                />
+                <LightboxImage src={PORTRAIT_SRC} alt="霍华翔 portrait" className="h-full w-full object-cover" />
               </div>
             </div>
           </ScaleUnblur>
