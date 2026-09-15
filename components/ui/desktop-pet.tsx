@@ -58,7 +58,7 @@ export function DesktopPet(): ReactNode {
         aria-label="展开网站桌宠"
         onClick={() => setIsOpen(true)}
       >
-        <img src={`${ASSET_PREFIX}/profile.png`} alt="" />
+        <img src={`${ASSET_PREFIX}/desktop-pet.png`} alt="" />
         <Sparkles aria-hidden="true" />
       </button>
     );
@@ -96,7 +96,7 @@ export function DesktopPet(): ReactNode {
         }}
       >
         <span className="desktop-pet-handle" aria-hidden="true"><Grip /></span>
-        <img src={`${ASSET_PREFIX}/profile.png`} alt="霍华翔网站桌宠" />
+        <img src={`${ASSET_PREFIX}/desktop-pet.png`} alt="霍华翔网站 Q 版桌宠" />
         <span className="desktop-pet-status"><MessageCircle aria-hidden="true" /></span>
       </div>
       <span className="desktop-pet-shadow" aria-hidden="true" />
