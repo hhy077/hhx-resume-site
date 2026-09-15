@@ -1,6 +1,7 @@
 "use client";
 
 import { Maximize2, Minus, Plus, RotateCcw, X, ZoomIn } from "lucide-react";
+import { createPortal } from "react-dom";
 import { useEffect, useRef, useState, type ReactNode, type WheelEvent } from "react";
 
 type LightboxImageProps = {
@@ -84,7 +85,7 @@ export function LightboxImage({ src, alt, className, sizes }: LightboxImageProps
         </span>
       </button>
 
-      {open ? (
+      {open && typeof document !== "undefined" ? createPortal(
         <div className="lightbox-overlay fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8" role="dialog" aria-modal="true" aria-label={`查看图片：${alt}`} onClick={close}>
           <div className="lightbox-toolbar absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1 rounded-full bg-white/12 p-1.5 text-white backdrop-blur sm:bottom-8">
             <button type="button" className="lightbox-tool" aria-label="缩小图片" onClick={(event) => { event.stopPropagation(); changeScale(scale - SCALE_STEP); }}><Minus className="h-4 w-4" /></button>
@@ -97,7 +98,8 @@ export function LightboxImage({ src, alt, className, sizes }: LightboxImageProps
           <div className="lightbox-canvas" onWheel={handleWheel} onClick={(event) => event.stopPropagation()}>
             <img src={src} alt={alt} className="lightbox-image-preview" style={{ transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})` }} onDoubleClick={() => { setScale(MIN_SCALE); setOffset({ x: 0, y: 0 }); }} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} />
           </div>
-        </div>
+        </div>,
+        document.body
       ) : null}
     </>
   );
