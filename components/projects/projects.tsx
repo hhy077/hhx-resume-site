@@ -43,7 +43,7 @@ const PROJECTS: Project[] = [
     meta: "阳光花园 · 内部测试 · 2026",
     imageRatio: 752 / 497,
     image:
-      "https://cdn.dribbble.com/userupload/46128964/file/b92b9d268dd928642ca94bd49e32923a.jpg?resize=752x497&vertical=center",
+      "/project-garden.jpg",
     imageAlt: "Loom AI writing companion mockup",
   },
   {
@@ -56,7 +56,7 @@ const PROJECTS: Project[] = [
     meta: "个人专属工作台 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
-      "https://cdn.dribbble.com/userupload/24599416/file/original-1ae5075dcd129aebb16bdbca24b41ac7.png?resize=1024x768&vertical=center",
+      "/project-workbench.jpg",
     imageAlt: "Atlas Studio brand and product sprint mockup",
   },
   {
@@ -69,7 +69,7 @@ const PROJECTS: Project[] = [
     meta: "文献智能辅助阅读工具 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
-      "https://cdn.dribbble.com/userupload/47357856/file/75841fa59f32f05ca6c5ddf02d08dfe6.png?resize=1024x768&vertical=center",
+      "/project-reader.jpg",
     imageAlt: "Rhythm calm analytics mockup",
   },
   {
@@ -221,5 +221,6 @@ function ProjectCard({
     </FadeIn>
   );
 }
+
 
 

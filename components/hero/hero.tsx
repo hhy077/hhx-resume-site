@@ -4,8 +4,8 @@ import { HeroCtas } from "./hero-ctas";
 import { FadeIn, ScaleUnblur } from "@/components/ui/motion-primitives";
 import { PortraitMorph } from "./portrait-morph";
 
-const PORTRAIT_SRC = "/josh.webp";
-const PORTRAIT_HOVER_SRC = "/josh_wave.webp";
+const PORTRAIT_SRC = "/hhx-portrait.png";
+const PORTRAIT_HOVER_SRC = "/hhx-portrait.png";
 
 export function Hero(): ReactNode {
   return (
@@ -51,3 +51,4 @@ export function Hero(): ReactNode {
     </section>
   );
 }
+
