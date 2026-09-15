@@ -65,7 +65,7 @@ export function LightboxImage({
           <img
             src={src}
             alt={alt}
-            className="max-h-[90vh] max-w-[95vw] object-contain"
+            className="lightbox-image-preview max-h-[90vh] max-w-[95vw] object-contain"
             onClick={(event) => event.stopPropagation()}
           />
         </div>
