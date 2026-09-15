@@ -58,13 +58,13 @@ export function LightboxImage({ src, alt, className, sizes }: LightboxImageProps
     changeScale(scale + (event.deltaY < 0 ? SCALE_STEP : -SCALE_STEP));
   };
 
-  const handlePointerDown = (event: React.PointerEvent<HTMLImageElement>): void => {
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>): void => {
     if (scale <= MIN_SCALE) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     dragRef.current = { active: true, x: event.clientX, y: event.clientY };
   };
 
-  const handlePointerMove = (event: React.PointerEvent<HTMLImageElement>): void => {
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>): void => {
     if (!dragRef.current.active) return;
     const dx = event.clientX - dragRef.current.x;
     const dy = event.clientY - dragRef.current.y;
@@ -95,8 +95,8 @@ export function LightboxImage({ src, alt, className, sizes }: LightboxImageProps
             <button type="button" className="lightbox-tool" aria-label="适应屏幕" onClick={(event) => { event.stopPropagation(); setScale(MIN_SCALE); setOffset({ x: 0, y: 0 }); }}><Maximize2 className="h-4 w-4" /></button>
           </div>
           <button type="button" className="focus-ring absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 sm:right-8 sm:top-8" aria-label="关闭图片预览" onClick={(event) => { event.stopPropagation(); close(); }}><X className="h-5 w-5" aria-hidden="true" /></button>
-          <div className="lightbox-canvas" onWheel={handleWheel} onClick={(event) => event.stopPropagation()}>
-            <img src={src} alt={alt} className="lightbox-image-preview" style={{ transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})` }} onDoubleClick={() => { setScale(MIN_SCALE); setOffset({ x: 0, y: 0 }); }} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp} />
+          <div className="lightbox-canvas" onWheel={handleWheel} onClick={(event) => event.stopPropagation()} onDoubleClick={() => { setScale(MIN_SCALE); setOffset({ x: 0, y: 0 }); }} onPointerDown={handlePointerDown} onPointerMove={handlePointerMove} onPointerUp={handlePointerUp} onPointerCancel={handlePointerUp}>
+            <img src={src} alt={alt} className="lightbox-image-preview" style={{ transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})` }} />
           </div>
         </div>,
         document.body
