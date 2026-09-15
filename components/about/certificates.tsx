@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" : "";
+
 const CERTIFICATES = [
   ["人工智能训练师（初级）", "AI Trainer · Junior", "/certificate-ai-trainer-junior.jpg"],
   ["人工智能训练师（高级）", "AI Trainer · Advanced", "/certificate-ai-trainer-advanced.jpg"],
@@ -15,7 +17,7 @@ export function Certificates() {
       <div className="mt-3 grid gap-3 sm:grid-cols-2">
         {CERTIFICATES.map(([title, subtitle, image]) => (
           <figure className="overflow-hidden rounded-3xl border border-foreground/8 bg-background" key={image}>
-            <Image src={image} alt={`${title} ${subtitle}`} width={1920} height={1358} className="h-auto w-full object-cover" />
+            <Image src={`${ASSET_PREFIX}${image}`} alt={`${title} ${subtitle}`} width={1920} height={1358} className="h-auto w-full object-cover" />
             <figcaption className="p-4 text-sm">
               <div className="font-medium">{title}</div>
               <div className="mt-1 text-xs text-foreground/50">{subtitle} · 2026</div>

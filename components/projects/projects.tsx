@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
 
+const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" : "";
+
 type Project = {
   id: string;
   icon: ComponentType<{ className?: string }>;
@@ -26,8 +28,7 @@ const PROJECTS: Project[] = [
     description: "面向 3–8 岁儿童的响应式学习平台，融合识字、算术、绘画与科普互动。",
     meta: "产品负责人 & 全栈开发者 · 内部测试 · 2026",
     imageRatio: 752 / 497,
-    image:
-      "/project-garden.jpg",
+    image: `${ASSET_PREFIX}/project-garden.jpg`,
     imageAlt: "阳光花园学习乐园项目界面",
   },
   {
@@ -38,8 +39,7 @@ const PROJECTS: Project[] = [
     description: "通过多智能体协作、工具调用和知识检索，用自然语言统一调度任务、日历与文件。",
     meta: "AI 效率工具开发者 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
-    image:
-      "/project-workbench.jpg",
+    image: `${ASSET_PREFIX}/project-workbench.jpg`,
     imageAlt: "个人专属工作台项目界面",
   },
   {
@@ -50,8 +50,7 @@ const PROJECTS: Project[] = [
     description: "支持 PDF 与网页导入、自动摘要、术语解释、语义检索和原文定位。",
     meta: "AI 科研工具开发者 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
-    image:
-      "/project-reader.jpg",
+    image: `${ASSET_PREFIX}/project-reader.jpg`,
     imageAlt: "文献智能辅助阅读工具项目界面",
   },
 ];
