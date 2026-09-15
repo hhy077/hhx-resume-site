@@ -132,6 +132,8 @@ export function Nav(): ReactNode {
     const activeEl =
       activeIndex >= 0 ? itemRefs.current[activeIndex] : null;
     if (!list || !activeEl) {
+      // The active item can be absent briefly while a route is changing.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPillRect(null);
       return;
     }

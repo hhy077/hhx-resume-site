@@ -1,5 +1,6 @@
 import { Education } from "@/components/about/education";
 import { Experience } from "@/components/about/experience";
+import { Certificates } from "@/components/about/certificates";
 import { PolaroidStrip } from "@/components/about/polaroid-strip";
 import { Skills } from "@/components/about/skills";
 import { Stack } from "@/components/about/stack";
@@ -26,17 +27,17 @@ export default function AboutPage(): ReactNode {
         <FadeIn delay={0.5}>
           <div className="rounded-4xl border border-foreground/5 bg-foreground/1.5 p-8 sm:p-12 dark:bg-foreground/3">
             <h1 className="font-serif text-[1.75rem] font-medium tracking-tight text-foreground sm:text-[2rem]">
-              Hello! I&rsquo;m <span className="border-b border-foreground/30 pb-0.5">Josh Mercer</span>.
+              你好，我是 <span className="border-b border-foreground/30 pb-0.5">霍华翔 Huaxiang Huo</span>。
             </h1>
             <div className="mt-8 space-y-6 text-[17px] leading-[1.7] tracking-tight text-foreground/75 sm:text-[18px]">
               <p>
-                A <strong className="font-semibold text-foreground">product designer and frontend engineer</strong> passionate about building intuitive, human-centered digital experiences. With a background in <strong className="font-semibold text-foreground">visual craft</strong> and <strong className="font-semibold text-foreground">interaction design</strong>, I bring a unique blend of design thinking and technical execution to every project.
+                我是一名专注于 <strong className="font-semibold text-foreground">AI 应用产品设计与全栈开发</strong> 的跨学科学习者，正在泉州师范学院学习食品科学与工程，并持续探索大语言模型、智能体与人机交互。
               </p>
               <p>
-                My journey into design began when I realized how often good user experience was missing from powerful tools. That led me to embrace <strong className="font-semibold text-foreground">user-centered design</strong> as both a mindset and a craft, one that balances clarity, creativity, and functionality.
+                我关注真实问题如何被转化为清晰、可靠、可迭代的工具，已经完成儿童学习平台、个人 AI 工作台和文献阅读助手等内部测试项目。
               </p>
               <p>
-                Currently leading design at small product teams shipping software for <strong className="font-semibold text-foreground">creative professionals</strong>, I&rsquo;m always looking for opportunities to <strong className="font-semibold text-foreground">shape thoughtful interfaces and build scalable design systems</strong>.
+                我的方向是把 <strong className="font-semibold text-foreground">食品科学 × 人工智能</strong> 的学习背景，和产品思维、Prompt、Agent、RAG 及响应式 Web 开发结合起来。
               </p>
             </div>
           </div>
@@ -50,6 +51,7 @@ export default function AboutPage(): ReactNode {
             <Education />
             <Skills />
             <Stack />
+            <Certificates />
           </div>
         </FadeIn>
       </section>

@@ -14,52 +14,22 @@ type Entry = {
 
 const ENTRIES: Entry[] = [
   {
-    company: "Linear",
-    role: "Senior Design Engineer",
-    period: "Mar 2024 – Present",
-    slug: "linear",
-    brand: "#5E6AD2",
+    company: "阳光花园",
+    role: "产品负责人 & 全栈开发者 · 内部测试",
+    period: "2026.07",
+    brand: "#ef6b45",
   },
   {
-    company: "Vercel",
-    role: "Product Designer",
-    period: "Aug 2022 – Feb 2024",
-    slug: "vercel",
-    brand: "#0a0a0a",
+    company: "个人专属工作台",
+    role: "AI 效率工具开发者 · 内部测试",
+    period: "2026.07",
+    brand: "#6f806b",
   },
   {
-    company: "Stripe",
-    role: "Design Engineer",
-    period: "Jun 2021 – Jul 2022",
-    slug: "stripe",
-    brand: "#635BFF",
-  },
-  {
-    company: "Figma",
-    role: "UI Engineer",
-    period: "Sep 2019 – May 2021",
-    slug: "figma",
-    brand: "#A259FF",
-  },
-  {
-    company: "Notion",
-    role: "Product Designer",
-    period: "Jan 2018 – Aug 2019",
-    slug: "notion",
-    brand: "#111111",
-  },
-  {
-    company: "Airbnb",
-    role: "Design Intern",
-    period: "May 2017 – Dec 2017",
-    slug: "airbnb",
-    brand: "#FF5A5F",
-  },
-  {
-    company: "Freelance",
-    role: "Designer & Developer",
-    period: "2015 – 2017",
-    brand: "#0AE448",
+    company: "文献智能辅助阅读工具",
+    role: "AI 科研工具开发者 · 内部测试",
+    period: "2026.07",
+    brand: "#3f7192",
   },
 ];
 
@@ -78,7 +48,7 @@ export function Experience(): ReactNode {
   return (
     <div className="flex flex-col gap-3">
       <h3 className="text-foreground text-[15px] font-semibold tracking-tight">
-        Experience
+        项目实践 · Experience
       </h3>
       <div
         className={`border-foreground/5 bg-foreground/2 dark:bg-foreground/5 relative overflow-hidden rounded-4xl border px-2 pt-2 sm:px-4 sm:pt-4 ${
@@ -151,7 +121,7 @@ export function Experience(): ReactNode {
                 : "absolute inset-x-0 bottom-0 z-10 py-3 sm:py-4"
             }`}
           >
-            {open ? "Show less" : `Show ${hiddenCount} more`}
+            {open ? "收起 · Show less" : `展开 ${hiddenCount} 项 · Show more`}
             <motion.span
               animate={{ rotate: open ? 180 : 0 }}
               transition={{ duration: 0.25 }}

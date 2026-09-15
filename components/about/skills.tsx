@@ -1,22 +1,22 @@
 import type { ReactNode } from "react";
 
 const SKILLS = [
-  "UI/UX Design",
-  "Design Systems",
-  "Prototyping & Motion",
-  "Frontend Development",
-  "TypeScript & React",
-  "Interaction Design",
-  "Performance Tuning",
-  "Accessibility",
-  "Visual Identity",
+  "AI 训练与数据标注 · AI training",
+  "Prompt Engineering",
+  "Agent Development",
+  "RAG / Embedding",
+  "Python · LangChain",
+  "Next.js · React",
+  "响应式 Web · Responsive UI",
+  "文献智能处理 · Research AI",
+  "Coze / Dify / Git / Figma",
 ];
 
 export function Skills(): ReactNode {
   return (
     <div className="flex flex-col gap-3">
       <h3 className="text-[15px] font-semibold tracking-tight text-foreground">
-        What I do
+        专业能力 · What I do
       </h3>
       <div className="rounded-4xl border border-foreground/5 bg-foreground/2 p-2 sm:p-4 dark:bg-foreground/5">
         <div className="flex flex-wrap gap-3">

@@ -1,5 +1,4 @@
-import { Mail } from "lucide-react";
-import Image from "next/image";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -39,29 +38,30 @@ export function ContactCard(): ReactNode {
               </div>
 
               <div className="border-foreground/8 flex flex-col items-center justify-center gap-6 rounded-[1.1rem] border bg-background p-6 sm:p-8">
-                <div className="flex items-center gap-3 opacity-75">
+                <div className="grid w-full gap-3 text-sm text-foreground/75 sm:grid-cols-2">
                   <SocialIcon
                     href="mailto:3526873890@qq.com"
-                    label="Email"
+                    label="Email 3526873890@qq.com"
                     lucideIcon={Mail}
                   />
                   <SocialIcon
-                    href="mailto:3526873890@qq.com"
-                    label="Email"
-                    imageSrc="/linkedin.svg"
+                    href="tel:13297873579"
+                    label="Phone 13297873579"
+                    lucideIcon={Phone}
                   />
                   <SocialIcon
                     href="weixin://dl/chat?hhuay007"
                     label="WeChat hhuay007"
-                    imageSrc="/x.svg"
+                    lucideIcon={MessageCircle}
                   />
+                  <SocialIcon href="#" label="Quanzhou, Fujian" lucideIcon={MapPin} />
                 </div>
                 <div className="flex flex-col items-center gap-1 text-center">
                   <p className="text-[13px] tracking-tight text-foreground/70">
-                    2026 &copy; 霍华翔 · WeChat: hhuay007
+                    2026 &copy; 霍华翔 Huaxiang Huo · WeChat: hhuay007
                   </p>
                   <p className="text-[12px] tracking-tight text-foreground/45">
-                    AI application developer · Quanzhou, Fujian
+                    AI 应用产品设计与全栈开发 · AI Application Designer & Full-Stack Developer
                   </p>
                 </div>
               </div>
@@ -77,12 +77,10 @@ function SocialIcon({
   href,
   label,
   lucideIcon: LucideIcon,
-  imageSrc,
 }: {
   href: string;
   label: string;
   lucideIcon?: React.ComponentType<{ className?: string; strokeWidth?: number }>;
-  imageSrc?: string;
 }): ReactNode {
   const isExternal = href.startsWith("http");
   const props = isExternal
@@ -95,18 +93,7 @@ function SocialIcon({
       className="border-foreground/8 hover:border-foreground/15 focus-ring inline-flex h-11 w-11 items-center justify-center rounded-xl border bg-background text-foreground/70 transition-colors hover:text-foreground"
       {...props}
     >
-      {LucideIcon ? (
-        <LucideIcon className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" />
-      ) : imageSrc ? (
-        <Image
-          src={imageSrc}
-          alt=""
-          width={14}
-          height={14}
-          aria-hidden="true"
-          className="max-h-[14px] max-w-[14px] object-contain dark:invert"
-        />
-      ) : null}
+      {LucideIcon ? <LucideIcon className="h-4 w-4" strokeWidth={2.5} aria-hidden="true" /> : null}
     </Link>
   );
 }

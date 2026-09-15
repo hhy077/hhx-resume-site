@@ -1,23 +1,9 @@
-import {
-  ArrowRight,
-  Bot,
-  Compass,
-  Layers,
-  LineChart,
-  Sparkles,
-  Wand2,
-} from "lucide-react";
+import { ArrowRight, BookOpen, Bot, Sparkles } from "lucide-react";
 import type { ComponentType, ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 import { FadeIn } from "@/components/ui/motion-primitives";
-
-/**
- * Project imagery below is mockup-only. All visuals are sourced from
- * Dribbble and credit belongs to the original creators on dribbble.com.
- * Replace these with your own work before shipping.
- */
 
 type Project = {
   id: string;
@@ -33,85 +19,40 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    id: "loom",
+    id: "sunshine-garden",
     icon: Sparkles,
-    iconLabel: "LOOM",
-    title:
-      "面向 3–8 岁儿童的响应式综合学习平台，覆盖识字、算术、绘画与科普互动模块。项目视频即将上线。",
-    description:
-      "产品负责人 & 全栈开发者 · 内部测试",
-    meta: "阳光花园 · 内部测试 · 2026",
+    iconLabel: "Sunshine Garden",
+    title: "阳光花园 · 学习乐园",
+    description: "面向 3–8 岁儿童的响应式学习平台，融合识字、算术、绘画与科普互动。",
+    meta: "产品负责人 & 全栈开发者 · 内部测试 · 2026",
     imageRatio: 752 / 497,
     image:
       "/project-garden.jpg",
-    imageAlt: "Loom AI writing companion mockup",
+    imageAlt: "阳光花园学习乐园项目界面",
   },
   {
-    id: "atlas",
-    icon: Compass,
-    iconLabel: "Atlas Studio",
-    title: "通过多智能体协作、工具调用和知识检索，用自然语言统一调度任务、日历与文件。项目视频即将上线。",
-    description:
-      "AI 效率工具开发者 · 内部测试",
-    meta: "个人专属工作台 · 内部测试 · 2026",
+    id: "personal-workspace",
+    icon: Bot,
+    iconLabel: "Personal AI Workspace",
+    title: "个人专属工作台",
+    description: "通过多智能体协作、工具调用和知识检索，用自然语言统一调度任务、日历与文件。",
+    meta: "AI 效率工具开发者 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
       "/project-workbench.jpg",
-    imageAlt: "Atlas Studio brand and product sprint mockup",
+    imageAlt: "个人专属工作台项目界面",
   },
   {
-    id: "rhythm",
-    icon: LineChart,
-    iconLabel: "Rhythm",
-    title: "支持 PDF 与网页导入、自动摘要、术语解释、语义检索和原文定位。项目视频即将上线。",
-    description:
-      "AI 科研工具开发者 · 内部测试",
-    meta: "文献智能辅助阅读工具 · 内部测试 · 2026",
+    id: "literature-reader",
+    icon: BookOpen,
+    iconLabel: "AI Literature Reader",
+    title: "文献智能辅助阅读工具",
+    description: "支持 PDF 与网页导入、自动摘要、术语解释、语义检索和原文定位。",
+    meta: "AI 科研工具开发者 · 内部测试 · 2026",
     imageRatio: 1024 / 768,
     image:
       "/project-reader.jpg",
-    imageAlt: "Rhythm calm analytics mockup",
-  },
-  {
-    id: "groove",
-    icon: Wand2,
-    iconLabel: "Groove",
-    title:
-      "Reimagining the booking flow for a music school, asisting thousands of students in finding the right lessons.",
-    description:
-      "I led a redesign of the lesson booking experience, cutting drop off in half and making the schedule feel like a calendar people actually want to open.",
-    meta: "Lead Designer, 2023",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/43955214/file/original-d4cde1de803e84b97d8892e3444c04b0.png?resize=1024x768&vertical=center",
-    imageAlt: "Groove music school booking flow mockup",
-  },
-  {
-    id: "fieldnote",
-    icon: Layers,
-    iconLabel: "Fieldnote",
-    title:
-      "A pocket sized research tool for design teams that want to get out of their docs and into the world.",
-    description:
-      "Capture quotes, tag patterns, and synthesize themes in one place. The interface stays out of the way so the thinking can happen.",
-    meta: "阳光花园 · 内部测试 · 2026",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/30310902/file/original-621e7fe47be9d11ee14544456c693bec.png?resize=1024x768&vertical=center",
-    imageAlt: "Fieldnote pocket sized research tool mockup",
-  },
-  {
-    id: "talkback",
-    icon: Bot,
-    iconLabel: "Talkback",
-    title: "A friendlier interface for talking to language models.",
-    description:
-      "An exploration of how AI chat could feel less like a terminal and more like a conversation with a curious friend.",
-    meta: "Independent Project, 2025",
-    imageRatio: 1024 / 768,
-    image:
-      "https://cdn.dribbble.com/userupload/16560717/file/original-c6f745d50302d66609bfe080f99f5396.png?resize=1024x768&vertical=center",
-    imageAlt: "Talkback friendlier AI chat interface mockup",
+    imageAlt: "文献智能辅助阅读工具项目界面",
   },
 ];
 
@@ -132,11 +73,10 @@ export function Projects({
         {withHeadline ? (
           <FadeIn className="flex flex-col items-center gap-5 pt-12 pb-10 text-center sm:pt-20 sm:pb-14">
             <h2 className="font-serif text-[2.5rem] font-medium leading-[1.05] tracking-tight text-foreground md:text-[3rem] lg:text-[3.5rem]">
-              My projects
+              我的项目 · My projects
             </h2>
             <p className="max-w-[33ch] text-[18px] leading-[1.45] tracking-tight text-foreground/65 sm:text-[20px]">
-              From playful experiments to thoughtful systems, a look at the
-              work I&rsquo;m proud to have shipped.
+              从跨学科实验到智能工具，记录我正在构建和验证的产品实践。
             </p>
           </FadeIn>
         ) : null}
@@ -153,7 +93,7 @@ export function Projects({
               href="/projects"
               className="border border-foreground/8 focus-ring group inline-flex cursor-pointer items-center gap-2 rounded-xl bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-foreground/5"
             >
-              View all projects
+              查看全部项目 · View all
               <ArrowRight
                 className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
                 aria-hidden="true"
