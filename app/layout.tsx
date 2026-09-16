@@ -9,6 +9,8 @@ import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
+const SITE_PREFIX = "/hhx-resume-site";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -64,6 +66,7 @@ export default function RootLayout({
           <PageBackdrop />
           <Nav />
           <DesktopPet />
+          <script src={`${SITE_PREFIX}/mini-q-pet.js`} defer />
           {children}
         </Providers>
       </body>
