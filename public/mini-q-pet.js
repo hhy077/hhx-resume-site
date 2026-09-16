@@ -91,8 +91,9 @@
           :host { all: initial; }
           .qp-root { position: fixed; inset: 0; z-index: 38; pointer-events: none; font-family: system-ui, sans-serif; }
           .qp-control { position: fixed; left: 16px; bottom: 16px; z-index: 2; pointer-events: auto; display: flex; align-items: center; gap: 8px; }
-          .qp-toggle, .qp-settings { border: 1px solid #d8d2c4; background: #fbfaf5; color: #20231f; box-shadow: 0 6px 18px #20231f20; cursor: pointer; }
+          .qp-toggle, .qp-settings-toggle, .qp-settings { border: 1px solid #d8d2c4; background: #fbfaf5; color: #20231f; box-shadow: 0 6px 18px #20231f20; cursor: pointer; }
           .qp-toggle { width: 42px; height: 42px; border-radius: 50%; font: 700 14px/1 system-ui, sans-serif; }
+          .qp-settings-toggle { width: 30px; height: 30px; border-radius: 50%; font-size: 15px; line-height: 1; }
           .qp-settings { display: none; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 10px; font-size: 12px; white-space: nowrap; }
           .qp-control.qp-open .qp-settings { display: flex; }
           .qp-settings label { display: flex; align-items: center; gap: 6px; }
@@ -115,6 +116,7 @@
         <div class="qp-root" aria-live="polite">
           <div class="qp-control">
             <button class="qp-toggle" type="button" aria-label="打开迷你 Q 版桌宠" aria-expanded="false">Q</button>
+            <button class="qp-settings-toggle" type="button" aria-label="打开迷你桌宠设置" aria-expanded="false">⚙</button>
             <div class="qp-settings" aria-hidden="true">
               <label><input class="qp-follow" type="checkbox" /> 跟随点击</label>
               <label><input class="qp-curiosity" type="checkbox" checked /> 好奇提示</label>
@@ -128,6 +130,7 @@
         </div>`;
       this.control = this.root.querySelector(".qp-control");
       this.toggle = this.root.querySelector(".qp-toggle");
+      this.settingsToggle = this.root.querySelector(".qp-settings-toggle");
       this.settingsPanel = this.root.querySelector(".qp-settings");
       this.followInput = this.root.querySelector(".qp-follow");
       this.curiosityInput = this.root.querySelector(".qp-curiosity");
@@ -150,6 +153,7 @@
         event.preventDefault();
         this.openSettings();
       });
+      this.listen(this.settingsToggle, "click", () => this.openSettings());
       this.listen(this.settingsClose, "click", () => this.closeSettings());
       this.listen(this.followInput, "change", () => {
         this.settings.followClick = this.followInput.checked;
@@ -183,12 +187,14 @@
     openSettings() {
       this.settingsOpen = true;
       this.control.classList.add("qp-open");
+      this.settingsToggle.setAttribute("aria-expanded", "true");
       this.settingsPanel.setAttribute("aria-hidden", "false");
     }
 
     closeSettings() {
       this.settingsOpen = false;
       this.control.classList.remove("qp-open");
+      this.settingsToggle.setAttribute("aria-expanded", "false");
       this.settingsPanel.setAttribute("aria-hidden", "true");
     }
 
