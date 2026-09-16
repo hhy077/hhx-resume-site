@@ -2,14 +2,11 @@ import { Nav } from "@/components/layout/nav";
 import { PageBackdrop } from "@/components/layout/page-backdrop";
 import { Providers } from "@/components/layout/providers";
 import { SkipToContent } from "@/components/layout/skip-to-content";
-import { DesktopPet } from "@/components/ui/desktop-pet";
 import { baseMetadata } from "@/lib/metadata";
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
-
-const SITE_PREFIX = "/hhx-resume-site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -65,8 +62,6 @@ export default function RootLayout({
           <SkipToContent />
           <PageBackdrop />
           <Nav />
-          <DesktopPet />
-          <script src={`${SITE_PREFIX}/mini-q-pet.js`} defer />
           {children}
         </Providers>
       </body>
