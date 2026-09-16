@@ -22,12 +22,21 @@ export function DesktopPet(): ReactNode {
   const line = PET_LINES[lineIndex] ?? PET_LINES[0]!;
 
   useEffect(() => {
+    const syncCurrentMode = (): void => {
+      const miniHost = document.querySelector("mini-q-pet-host");
+      setMiniPetActive(miniHost?.getAttribute("data-qp-enabled") === "true");
+    };
     const handleModeChange = (event: Event): void => {
       const mode = (event as CustomEvent<{ mode?: string }>).detail?.mode;
       setMiniPetActive(mode === "mini");
     };
+    syncCurrentMode();
+    const syncFrame = window.requestAnimationFrame(syncCurrentMode);
     window.addEventListener("qp-pet-mode-change", handleModeChange);
-    return () => window.removeEventListener("qp-pet-mode-change", handleModeChange);
+    return () => {
+      window.cancelAnimationFrame(syncFrame);
+      window.removeEventListener("qp-pet-mode-change", handleModeChange);
+    };
   }, []);
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>): void => {
