@@ -13,7 +13,7 @@ const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" 
 
 export function DesktopPet(): ReactNode {
   const [isOpen, setIsOpen] = useState(true);
-  const [miniPetActive, setMiniPetActive] = useState(false);
+  const [miniPetActive, setMiniPetActive] = useState(() => typeof document !== "undefined" && document.querySelector("mini-q-pet-host")?.getAttribute("data-qp-enabled") === "true");
   const [lineIndex, setLineIndex] = useState(0);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const dragStart = useRef<{ pointerX: number; pointerY: number; x: number; y: number } | null>(null);
