@@ -1,7 +1,7 @@
 "use client";
 
 import { Grip, MessageCircle, Minimize2, Sparkles } from "lucide-react";
-import { useRef, useState, type PointerEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type PointerEvent, type ReactNode } from "react";
 
 const PET_LINES = [
   { zh: "你好，我是华翔。", en: "Hi, I'm Huaxiang." },
@@ -13,12 +13,22 @@ const ASSET_PREFIX = process.env.NODE_ENV === "production" ? "/hhx-resume-site" 
 
 export function DesktopPet(): ReactNode {
   const [isOpen, setIsOpen] = useState(true);
+  const [miniPetActive, setMiniPetActive] = useState(false);
   const [lineIndex, setLineIndex] = useState(0);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const dragStart = useRef<{ pointerX: number; pointerY: number; x: number; y: number } | null>(null);
   const didDrag = useRef(false);
 
   const line = PET_LINES[lineIndex] ?? PET_LINES[0]!;
+
+  useEffect(() => {
+    const handleModeChange = (event: Event): void => {
+      const mode = (event as CustomEvent<{ mode?: string }>).detail?.mode;
+      setMiniPetActive(mode === "mini");
+    };
+    window.addEventListener("qp-pet-mode-change", handleModeChange);
+    return () => window.removeEventListener("qp-pet-mode-change", handleModeChange);
+  }, []);
 
   const handlePointerDown = (event: PointerEvent<HTMLDivElement>): void => {
     if (event.button !== 0) return;
@@ -50,13 +60,18 @@ export function DesktopPet(): ReactNode {
     setLineIndex((current) => (current + 1) % PET_LINES.length);
   };
 
+  if (miniPetActive) return null;
+
   if (!isOpen) {
     return (
       <button
         type="button"
         className="desktop-pet-collapsed"
         aria-label="展开网站桌宠"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          window.dispatchEvent(new CustomEvent("qp-pet-mode-change", { detail: { mode: "classic" } }));
+          setIsOpen(true);
+        }}
       >
         <img src={`${ASSET_PREFIX}/desktop-pet.png`} alt="" />
         <Sparkles aria-hidden="true" />
