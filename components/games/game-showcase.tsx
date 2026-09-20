@@ -32,6 +32,13 @@ const GAMES = [
     image: "/games/ten-days-mud.png",
     href: "https://hhy077.github.io/ten-days/",
   },
+  {
+    title: "深空粒子星球",
+    en: "Deep Space Particle Planet",
+    description: "以粒子星球为核心的深空交互体验，支持随机事件、自动巡航、环景旋转与手势探索。",
+    image: "/games/deep-space-particle-planet.png",
+    href: "https://hhy077.github.io/particle-planet/",
+  },
 ] as const;
 
 export function GameShowcase() {
@@ -43,7 +50,7 @@ export function GameShowcase() {
           <h2>制作游戏展示<br /><em>Game Showcase</em></h2>
           <p>从互动学习到文字冒险，记录我制作并持续迭代的游戏与体验项目。</p>
         </div>
-        <div className="game-showcase-badge"><Gamepad2 className="h-5 w-5" aria-hidden="true" /><span>4 playable experiences</span></div>
+        <div className="game-showcase-badge"><Gamepad2 className="h-5 w-5" aria-hidden="true" /><span>5 playable experiences</span></div>
       </div>
       <div className="game-grid">
         {GAMES.map((game, index) => (
@@ -53,7 +60,7 @@ export function GameShowcase() {
               <span className="game-card-index">0{index + 1}</span>
             </div>
             <div className="game-card-body">
-              <p className="project-tech">PLAYABLE · {index === 0 ? "ARCADE" : index === 1 ? "TRAINING" : index === 2 ? "LEARNING" : "STORY"}</p>
+              <p className="project-tech">PLAYABLE · {index === 0 ? "ARCADE" : index === 1 ? "TRAINING" : index === 2 ? "LEARNING" : index === 3 ? "STORY" : "INTERACTIVE"}</p>
               <h3>{game.title}</h3>
               <p className="game-card-en">{game.en}</p>
               <p>{game.description}</p>
